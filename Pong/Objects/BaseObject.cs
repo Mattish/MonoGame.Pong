@@ -1,38 +1,20 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Pong
+namespace Pong.Objects
 {
-    public class GameBall : BasicMovingRectangle
+    public abstract class BaseObject
     {
-        public GameBall(string name, BasicEffect basicEffect, float initialX, float initialY) : base(name, basicEffect, initialX, initialY, 4, 4)
-        {
-        }
-
-        public override void CollideWith(BaseObject baseObject)
-        {
-            switch (baseObject.Name)
-            {
-                case "Top":
-                case "Bot":
-                    SetVelocity(new Vector3(-Velocity.X, Velocity.Y, Velocity.Z));
-                break;
-            }
-        }
-    }
-
-    public class BasicMovingRectangle : BaseObject
-    {
+        public string Name { get; private set; }
         public BoundingBox BoundingBox { get; protected set; }
         public VertexPositionTexture[] Vertex { get; protected set; }
         public BasicEffect BasicEffect { get; protected set; }
         public Vector3 Position { get; protected set; }
-        public Vector3 Velocity { get; protected set; }
-
         public int AmountOfTriangles { get; protected set; }
 
-        public BasicMovingRectangle(string name, BasicEffect basicEffect, float initialX, float initialY, float initialWidth = 1f, float initialHeight = 1f) : base(name)
+        protected BaseObject(string name, BasicEffect basicEffect, float initialX, float initialY, float initialWidth = 1f, float initialHeight = 1f)
         {
+            Name = name;
             Vertex = new VertexPositionTexture[6];
             var halfH = initialHeight / 2;
             var halfW = initialWidth / 2;
@@ -70,27 +52,9 @@ namespace Pong
             }
         }
 
-        public void SetVelocity(Vector3 velocity)
+        public virtual void Update()
         {
-            Velocity = velocity;
-        }
 
-        public void Update()
-        {
-            Position += Velocity;
-            BoundingBox = BoundingBox.CreateFromPoints(new[]
-            {
-                Vertex[0].Position + Position,
-                Vertex[1].Position + Position,
-                Vertex[2].Position + Position,
-                Vertex[4].Position + Position
-            });
-
-        }
-
-        public virtual void CollideWith(BaseObject baseObject)
-        {
-            
         }
     }
 }

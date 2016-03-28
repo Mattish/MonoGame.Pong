@@ -38,13 +38,13 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BaseObject.cs" />
+    <Compile Include="GameLogic.cs" />
+    <Compile Include="Objects\BaseObject.cs" />
     <Compile Include="BasePong.cs" />
-    <Compile Include="BasicMovingRectangle.cs" />
-    <Compile Include="BasicStaticObject.cs" />
-    <Compile Include="BasicStaticRectangle.cs" />
-    <Compile Include="BasicStaticSquare.cs" />
+    <Compile Include="Objects\BasicMovingRectangle.cs" />
+    <Compile Include="Objects\BasicStaticRectangle.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Objects\GameBall.cs" />
     <Compile Include="Pong.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
