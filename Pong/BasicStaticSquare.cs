@@ -5,7 +5,7 @@ namespace Pong
 {
     public sealed class BasicStaticSquare : BasicStaticObject
     {
-        public BasicStaticSquare(BasicEffect basicEffect, float initialX, float initialY, float size = 2f)
+        public BasicStaticSquare(string name, BasicEffect basicEffect, float initialX, float initialY, float size = 2f) : base(name)
         {
             Vertex = new VertexPositionTexture[6];
             var halfSize = size / 2f;
@@ -23,10 +23,10 @@ namespace Pong
             AmountOfTriangles = Vertex.Length / 3;
             BoundingBox = BoundingBox.CreateFromPoints(new[]
             {
-                Vertex[0].Position,
-                Vertex[1].Position,
-                Vertex[2].Position,
-                Vertex[4].Position,
+                Vertex[0].Position + Position,
+                Vertex[1].Position + Position,
+                Vertex[2].Position + Position,
+                Vertex[4].Position + Position,
             });
         }
     }

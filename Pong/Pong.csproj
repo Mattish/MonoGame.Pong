@@ -38,7 +38,9 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BaseObject.cs" />
     <Compile Include="BasePong.cs" />
+    <Compile Include="BasicMovingRectangle.cs" />
     <Compile Include="BasicStaticObject.cs" />
     <Compile Include="BasicStaticRectangle.cs" />
     <Compile Include="BasicStaticSquare.cs" />
